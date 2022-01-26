@@ -1,6 +1,8 @@
+# apigee-portal-react
 
+Hackathon project to demonstrate an Apigee developer portal created in React using API first approaches.
 
-# Cdw
+## Monorepo Boostrap Information
 
 This project was generated using [Nx](https://nx.dev).
 
