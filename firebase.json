@@ -1,0 +1,43 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "./dist/fire-cms/",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9021
+    },
+    "firestore": {
+      "port": 9022
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "pubsub": {
+      "port": 9024
+    },
+    "storage": {
+      "port": 9025
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
+}

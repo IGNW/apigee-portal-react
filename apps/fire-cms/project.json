@@ -1,0 +1,70 @@
+{
+  "root": "apps/fire-cms",
+  "sourceRoot": "apps/fire-cms/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/fire-cms",
+        "index": "apps/fire-cms/src/index.html",
+        "baseHref": "/",
+        "main": "apps/fire-cms/src/main.tsx",
+        "polyfills": "apps/fire-cms/src/polyfills.ts",
+        "tsConfig": "apps/fire-cms/tsconfig.app.json",
+        "assets": ["apps/fire-cms/src/favicon.ico", "apps/fire-cms/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/fire-cms/src/environments/environment.ts",
+              "with": "apps/fire-cms/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "fire-cms:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "fire-cms:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/fire-cms/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/fire-cms"],
+      "options": {
+        "jestConfig": "apps/fire-cms/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["cms"]
+}
