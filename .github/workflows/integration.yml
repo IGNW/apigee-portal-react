@@ -1,0 +1,103 @@
+name: Integration Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: npm ci
+      - name: Build
+        run: ./node_modules/.bin/nx affected --target=build --configuration production --base=$NX_BASE
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: npm ci
+      - name: Lint
+        run: ./node_modules/.bin/nx affected --target=lint --base=$NX_BASE
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: npm ci
+      - name: Unit Tests
+        run: ./node_modules/.bin/nx affected --target=test --base=$NX_BASE
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: npm ci
+      - name: Integration Tests
+        run: ./node_modules/.bin/nx affected --target=integration-test --base=$NX_BASE
+
+  end-to-end-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: npm ci
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+      - name: Populate Dev Environment Variables
+        run: source env/load-app-config.sh --name apigee-hackathon-ac --export-type github
+      - name: End To End Tests
+        run: ./node_modules/.bin/nx affected --target=e2e --base=$NX_BASE
