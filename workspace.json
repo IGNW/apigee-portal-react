@@ -1,6 +1,9 @@
 {
   "version": 2,
   "projects": {
-    "fire-cms": "apps/fire-cms"
+    "api-portal": "apps/api-portal",
+    "fire-cms": "apps/fire-cms",
+    "rapi-doc-react": "libs/rapi-doc-react",
+    "types": "libs/types"
   }
 }

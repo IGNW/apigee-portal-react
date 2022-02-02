@@ -37,3 +37,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/apps/api-portal/node_modules
+/apps/api-portal/public
+/apps/api-portal/.cache
