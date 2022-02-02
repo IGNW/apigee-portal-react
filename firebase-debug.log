@@ -1,0 +1,93 @@
+[debug] [2022-02-02T16:35:58.183Z] ----------------------------------------------------------------------
+[debug] [2022-02-02T16:35:58.184Z] Command:       /Users/brianmcbride/.nvm/versions/node/v16.13.1/bin/node /Users/brianmcbride/.nvm/versions/node/v16.13.1/bin/firebase emulators:start
+[debug] [2022-02-02T16:35:58.185Z] CLI Version:   10.1.4
+[debug] [2022-02-02T16:35:58.185Z] Platform:      darwin
+[debug] [2022-02-02T16:35:58.185Z] Node Version:  v16.13.1
+[debug] [2022-02-02T16:35:58.186Z] Time:          Wed Feb 02 2022 08:35:58 GMT-0800 (Pacific Standard Time)
+[debug] [2022-02-02T16:35:58.186Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-02-02T16:35:58.241Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-02-02T16:35:58.242Z] > authorizing via signed-in user (brianm@ignw.io)
+[info] i  emulators: Starting emulators: auth, firestore, hosting, pubsub, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore, hosting, pubsub, storage"}}
+[debug] [2022-02-02T16:35:58.266Z] [hub] writing locator at /var/folders/62/5pw1l78j3_b0j74r4k1gpf000000gn/T/hub-hackathon-apigee-portal.json
+[debug] [2022-02-02T16:35:58.276Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-02-02T16:35:58.276Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-02-02T16:35:58.277Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/brianmcbride/.cache/firebase/emulators/cloud-firestore-emulator-v1.13.1.jar","--host","localhost","--port",9022,"--rules","/Users/brianmcbride/Development/cdw/hackathon-apigee-portal/firestore.rules"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/brianmcbride/.cache/firebase/emulators/cloud-firestore-emulator-v1.13.1.jar\",\"--host\",\"localhost\",\"--port\",9022,\"--rules\",\"/Users/brianmcbride/Development/cdw/hackathon-apigee-portal/firestore.rules\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-02-02T16:35:58.994Z] Feb 02, 2022 8:35:58 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:55019
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Feb 02, 2022 8:35:58 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://localhost:55019\n"}}
+[debug] [2022-02-02T16:35:59.014Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
+[debug] [2022-02-02T16:35:59.014Z] localhost:9022
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:9022
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"localhost:9022\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=localhost:9022\n\nDev App Server is now running.\n\n"}}
+[debug] [2022-02-02T16:36:05.418Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-02-02T16:36:05.418Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-02-02T16:36:05.418Z] Starting Pub/Sub Emulator with command {"binary":"/Users/brianmcbride/.cache/firebase/emulators/pubsub-emulator-0.1.0/pubsub-emulator/bin/cloud-pubsub-emulator","args":["--host=localhost","--port=9024"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"/Users/brianmcbride/.cache/firebase/emulators/pubsub-emulator-0.1.0/pubsub-emulator/bin/cloud-pubsub-emulator\",\"args\":[\"--host=localhost\",\"--port=9024\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
+[info] i  pubsub: Pub/Sub Emulator logging to pubsub-debug.log {"metadata":{"emulator":{"name":"pubsub"},"message":"Pub/Sub Emulator logging to \u001b[1mpubsub-debug.log\u001b[22m"}}
+[debug] [2022-02-02T16:36:05.527Z] This is the Google Pub/Sub fake.
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"This is the Google Pub/Sub fake.\n"}}
+[debug] [2022-02-02T16:36:05.528Z] Implementation may be incomplete or differ from the real system.
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"Implementation may be incomplete or differ from the real system.\n"}}
+[debug] [2022-02-02T16:36:05.565Z] Feb 02, 2022 8:36:05 AM com.google.cloud.pubsub.testing.v1.Main main
+INFO: IAM integration is disabled. IAM policy methods and ACL checks are not supported
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"Feb 02, 2022 8:36:05 AM com.google.cloud.pubsub.testing.v1.Main main\nINFO: IAM integration is disabled. IAM policy methods and ACL checks are not supported\n"}}
+[debug] [2022-02-02T16:36:05.865Z] Feb 02, 2022 8:36:05 AM io.gapi.emulators.netty.NettyUtil applyJava7LongHostnameWorkaround
+INFO: Unable to apply Java 7 long hostname workaround.
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"Feb 02, 2022 8:36:05 AM io.gapi.emulators.netty.NettyUtil applyJava7LongHostnameWorkaround\nINFO: Unable to apply Java 7 long hostname workaround.\n"}}
+[debug] [2022-02-02T16:36:05.929Z] Feb 02, 2022 8:36:05 AM com.google.cloud.pubsub.testing.v1.Main main
+INFO: Server started, listening on 9024
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"Feb 02, 2022 8:36:05 AM com.google.cloud.pubsub.testing.v1.Main main\nINFO: Server started, listening on 9024\n"}}
+[debug] [2022-02-02T16:36:05.935Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-02-02T16:36:05.989Z] Feb 02, 2022 8:36:05 AM io.gapi.emulators.grpc.GrpcServer$3 operationComplete
+INFO: Adding handler(s) to newly registered Channel.
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"Feb 02, 2022 8:36:05 AM io.gapi.emulators.grpc.GrpcServer$3 operationComplete\nINFO: Adding handler(s) to newly registered Channel.\n"}}
+[debug] [2022-02-02T16:36:06.077Z] Temp file directory for storage emulator: /var/folders/62/5pw1l78j3_b0j74r4k1gpf000000gn/T/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: /var/folders/62/5pw1l78j3_b0j74r4k1gpf000000gn/T/firebase/storage/blobs"}}
+[debug] [2022-02-02T16:36:06.588Z] > refreshing access token with scopes: []
+[debug] [2022-02-02T16:36:06.589Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-02-02T16:36:06.699Z] <<< HTTP RESPONSE 200 {"date":"Wed, 02 Feb 2022 16:36:06 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-02-02T16:36:06.745Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/hackathon-apigee-portal/sites 
+[debug] [2022-02-02T16:36:07.205Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/hackathon-apigee-portal/sites 200
+[debug] [2022-02-02T16:36:07.205Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/hackathon-apigee-portal/sites {"sites":[{"name":"projects/379649122188/sites/hackathon-apigee-portal","defaultUrl":"https://hackathon-apigee-portal.web.app","appId":"1:379649122188:web:977836a7abf3ece84240a9","type":"DEFAULT_SITE"},{"name":"projects/379649122188/sites/hackathon-cms","defaultUrl":"https://hackathon-cms.web.app","appId":"1:379649122188:web:0bd1d49d483224404240a9","type":"USER_SITE"}]}
+[debug] [2022-02-02T16:36:07.206Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hackathon-apigee-portal/webApps/1:379649122188:web:977836a7abf3ece84240a9/config [none]
+[debug] [2022-02-02T16:36:07.613Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hackathon-apigee-portal/webApps/1:379649122188:web:977836a7abf3ece84240a9/config 200
+[debug] [2022-02-02T16:36:07.614Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hackathon-apigee-portal/webApps/1:379649122188:web:977836a7abf3ece84240a9/config {"projectId":"hackathon-apigee-portal","appId":"1:379649122188:web:977836a7abf3ece84240a9","storageBucket":"hackathon-apigee-portal.appspot.com","locationId":"us-central","apiKey":"AIzaSyDEC4XOyVROToQsfzyM5OdV-v18MM1dCoY","authDomain":"hackathon-apigee-portal.firebaseapp.com","messagingSenderId":"379649122188","measurementId":"G-CF7TWW55MF"}
+[info] i  hosting: Serving hosting files from: ./dist/fire-cms/ {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1m./dist/fire-cms/\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:9111 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:9111\u001b[22m\u001b[24m"}}
+[warn] ⚠  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
+[debug] [2022-02-02T16:36:07.664Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-02-02T16:36:07.664Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-02-02T16:36:07.664Z] Starting Emulator UI with command {"binary":"node","args":["/Users/brianmcbride/.cache/firebase/emulators/ui-v1.6.4/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/brianmcbride/.cache/firebase/emulators/ui-v1.6.4/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-02-02T16:36:07.762Z] Web / API server started at localhost:4001
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4001\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4001                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9021 │ http://localhost:4001/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:9022 │ http://localhost:4001/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ localhost:9111 │ n/a                             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Pub/Sub        │ localhost:9024 │ n/a                             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ localhost:9025 │ http://localhost:4001/storage   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

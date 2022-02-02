@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/database",
+  "sourceRoot": "libs/server/database/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/database/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/database"],
+      "options": {
+        "jestConfig": "libs/server/database/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["server"]
+}

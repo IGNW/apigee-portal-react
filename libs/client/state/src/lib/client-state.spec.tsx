@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import RapiDocReact from './RapiDocReact';
+import ClientState from './client-state';
 
-describe('RapiDocReact', () => {
+describe('ClientState', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<RapiDocReact />);
+    const { baseElement } = render(<ClientState />);
     expect(baseElement).toBeTruthy();
   });
 });
