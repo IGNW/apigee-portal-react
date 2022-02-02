@@ -1,0 +1,8 @@
+{
+  "A_JSON_TEST": {
+    "authDomain": "hackathon-apigee-portal.firebaseapp.com",
+    "databaseURL": "https://hackathon-apigee-portal.firebaseio.com",
+    "storageBucket": "hackathon-apigee-portal.appspot.com",
+    "projectId": "hackathon-apigee-portal"
+  }
+}
