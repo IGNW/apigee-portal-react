@@ -1,0 +1,23 @@
+{
+  "root": "libs/client/theme",
+  "sourceRoot": "libs/client/theme/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client/theme/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/theme"],
+      "options": {
+        "jestConfig": "libs/client/theme/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["client", "theme"]
+}
