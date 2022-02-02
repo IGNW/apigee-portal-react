@@ -1,0 +1,23 @@
+{
+  "root": "libs/rapi-doc-react",
+  "sourceRoot": "libs/rapi-doc-react/src",
+  "projectType": "library",
+  "tags": ["react", "component", "api", "rapidoc"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/rapi-doc-react/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/rapi-doc-react"],
+      "options": {
+        "jestConfig": "libs/rapi-doc-react/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
