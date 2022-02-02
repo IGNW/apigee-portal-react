@@ -9,6 +9,7 @@
     "client-theme": "libs/client/theme",
     "fire-cms": "apps/fire-cms",
     "rapi-doc-react": "libs/rapi-doc-react",
+    "server-apigee-sdk": "libs/server/apigee-sdk",
     "server-database": "libs/server/database",
     "server-example": "libs/server/example",
     "testing": "libs/testing",

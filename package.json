@@ -77,6 +77,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@fontsource/roboto": "^4.5.2",
+    "@google-cloud/apigee-connect": "^1.1.1",
     "@google-cloud/pubsub": "^2.18.5",
     "@mui/icons-material": "^5.3.1",
     "@mui/lab": "^5.0.0-alpha.67",

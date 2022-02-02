@@ -20,6 +20,7 @@
       "@cdw/components": ["libs/client/components/src/index.ts"],
       "@cdw/pages": ["libs/client/pages/src/index.ts"],
       "@cdw/rapi-doc-react": ["libs/rapi-doc-react/src/index.ts"],
+      "@cdw/server/apigee-sdk": ["libs/server/apigee-sdk/src/index.ts"],
       "@cdw/server/database": ["libs/server/database/src/index.ts"],
       "@cdw/server/example": ["libs/server/example/src/index.ts"],
       "@cdw/state": ["libs/client/state/src/index.ts"],
