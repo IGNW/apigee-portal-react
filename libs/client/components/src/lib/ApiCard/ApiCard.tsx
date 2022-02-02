@@ -1,8 +1,8 @@
-import { Button, Paper, Stack, Typography } from '@mui/material';
+import { Button, Paper, PaperProps, Stack, Typography } from '@mui/material';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 
 /* eslint-disable-next-line */
-export interface ApiCardProps {
+export interface ApiCardProps extends Omit<PaperProps, 'onClick'> {
   apiId: string;
   name: string;
   description?: string;
@@ -16,13 +16,14 @@ export function ApiCard({
   description,
   isPublic = false,
   onClick,
+  ...props
 }: ApiCardProps) {
   const handleClick = () => {
     onClick && onClick(apiId);
   };
 
   return (
-    <Paper>
+    <Paper {...props}>
       <Stack spacing={{ xs: 1, sm: 2 }} sx={{ p: 1 }}>
         <Stack
           direction="row"
