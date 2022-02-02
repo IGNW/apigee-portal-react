@@ -2,7 +2,7 @@
 import React from 'react';
 import 'rapidoc';
 
-interface RapiDocProps
+export interface RapiDocProps
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
@@ -74,9 +74,14 @@ interface RapiDocProps
   apiServerChange?: (server: any) => any;
 }
 
+export interface RapiDocElement extends HTMLDivElement {
+  // Methods
+  setApiKey?: (securitySchemeId: any, token: string) => any;
+}
+
 declare global {
   interface HTMLElementTagNameMap {
-    'rapi-doc': HTMLDivElement;
+    'rapi-doc': RapiDocElement;
   }
   /* eslint-disable @typescript-eslint/no-namespace */
   namespace JSX {
@@ -127,7 +132,6 @@ export const RapiDocReact = React.forwardRef<HTMLDivElement, RapiDocProps>(
         apiServerChange && apiServerChange(server);
       };
 
-      console.log(`rapiDocRef`, rapiDocRef);
       if (rapiDocRef) {
         beforeRender &&
           rapiDocRef.addEventListener('before-render', handleBeforeRender);
