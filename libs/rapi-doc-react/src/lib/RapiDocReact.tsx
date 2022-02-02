@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import 'rapidoc';
 
 interface RapiDocProps
@@ -64,6 +66,12 @@ interface RapiDocProps
   'api-key-location'?: 'header' | 'query';
   'api-key-value'?: string;
   'fetch-credentials'?: 'omit' | 'same-origin' | 'include';
+  // Events
+  beforeRender?: (spec: any) => void;
+  specLoaded?: (spec: any) => void;
+  beforeTry?: (request: any) => any;
+  afterTry?: (data: any) => any;
+  apiServerChange?: (server: any) => any;
 }
 
 declare global {
@@ -78,11 +86,94 @@ declare global {
   }
 }
 
-export const RapiDocReact: React.FC<RapiDocProps> = ({
-  children,
-  ...props
-}: RapiDocProps) => {
-  return <rapi-doc {...props}>{children}</rapi-doc>;
-};
+export const RapiDocReact = React.forwardRef<HTMLDivElement, RapiDocProps>(
+  (
+    {
+      beforeRender,
+      specLoaded,
+      beforeTry,
+      afterTry,
+      apiServerChange,
+      children,
+      ...props
+    }: RapiDocProps,
+    ref
+  ) => {
+    const localRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+      const rapiDocRef =
+        typeof ref === 'object' && ref?.current
+          ? ref?.current
+          : localRef.current;
+
+      const handleBeforeRender = (spec: any) => {
+        beforeRender && beforeRender(spec);
+      };
+
+      const handleSpecLoaded = (spec: any) => {
+        specLoaded && specLoaded(spec);
+      };
+
+      const handleBeforeTry = (request: any) => {
+        beforeTry && beforeTry(request);
+      };
+
+      const handleAfterTry = (data: any) => {
+        afterTry && afterTry(data);
+      };
+
+      const handleApiServerChange = (server: any) => {
+        apiServerChange && apiServerChange(server);
+      };
+
+      console.log(`rapiDocRef`, rapiDocRef);
+      if (rapiDocRef) {
+        beforeRender &&
+          rapiDocRef.addEventListener('before-render', handleBeforeRender);
+        specLoaded &&
+          rapiDocRef.addEventListener('spec-loaded', handleSpecLoaded);
+        beforeTry && rapiDocRef.addEventListener('before-try', handleBeforeTry);
+        afterTry && rapiDocRef.addEventListener('after-try', handleAfterTry);
+        apiServerChange &&
+          rapiDocRef.addEventListener(
+            'api-server-change',
+            handleApiServerChange
+          );
+      }
+      return () => {
+        if (rapiDocRef) {
+          beforeRender &&
+            rapiDocRef.removeEventListener('before-render', handleBeforeRender);
+          specLoaded &&
+            rapiDocRef.removeEventListener('spec-loaded', handleSpecLoaded);
+          beforeTry &&
+            rapiDocRef.removeEventListener('before-try', handleBeforeTry);
+          afterTry &&
+            rapiDocRef.removeEventListener('after-try', handleAfterTry);
+          apiServerChange &&
+            rapiDocRef.removeEventListener(
+              'api-server-change',
+              handleApiServerChange
+            );
+        }
+      };
+    }, [
+      ref,
+      localRef,
+      specLoaded,
+      beforeRender,
+      beforeTry,
+      afterTry,
+      apiServerChange,
+    ]);
+
+    return (
+      <rapi-doc {...props} ref={ref || localRef}>
+        {children}
+      </rapi-doc>
+    );
+  }
+);
 
 export default RapiDocReact;
