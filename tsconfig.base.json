@@ -4,6 +4,7 @@
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -14,9 +15,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "typeRoots": ["./types"],
     "paths": {
+      "@cdw/client/components": ["libs/client/components/src/index.ts"],
+      "@cdw/client/database": ["libs/client/database/src/index.ts"],
+      "@cdw/client/pages": ["libs/client/pages/src/index.ts"],
+      "@cdw/client/state": ["libs/client/state/src/index.ts"],
       "@cdw/rapi-doc-react": ["libs/rapi-doc-react/src/index.ts"],
+      "@cdw/server/database": ["libs/server/database/src/index.ts"],
+      "@cdw/testing": ["libs/testing/src/index.ts"],
       "@cdw/types": ["libs/types/src/index.ts"]
     }
   },

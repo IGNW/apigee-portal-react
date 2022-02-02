@@ -1,0 +1,23 @@
+{
+  "root": "libs/client/state",
+  "sourceRoot": "libs/client/state/src",
+  "projectType": "library",
+  "tags": ["client", "react"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client/state/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/state"],
+      "options": {
+        "jestConfig": "libs/client/state/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

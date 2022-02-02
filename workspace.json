@@ -2,8 +2,14 @@
   "version": 2,
   "projects": {
     "api-portal": "apps/api-portal",
+    "client-components": "libs/client/components",
+    "client-database": "libs/client/database",
+    "client-pages": "libs/client/pages",
+    "client-state": "libs/client/state",
     "fire-cms": "apps/fire-cms",
     "rapi-doc-react": "libs/rapi-doc-react",
+    "server-database": "libs/server/database",
+    "testing": "libs/testing",
     "types": "libs/types"
   }
 }

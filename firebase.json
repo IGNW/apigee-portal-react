@@ -5,11 +5,7 @@
   },
   "hosting": {
     "public": "./dist/fire-cms/",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
@@ -28,7 +24,7 @@
       "port": 9022
     },
     "hosting": {
-      "port": 5000
+      "port": 9111
     },
     "pubsub": {
       "port": 9024
