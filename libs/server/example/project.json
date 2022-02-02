@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/example",
+  "sourceRoot": "libs/server/example/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/example/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/example"],
+      "options": {
+        "jestConfig": "libs/server/example/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["server", "api"]
+}

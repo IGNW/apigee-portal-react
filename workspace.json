@@ -6,9 +6,11 @@
     "client-database": "libs/client/database",
     "client-pages": "libs/client/pages",
     "client-state": "libs/client/state",
+    "client-theme": "libs/client/theme",
     "fire-cms": "apps/fire-cms",
     "rapi-doc-react": "libs/rapi-doc-react",
     "server-database": "libs/server/database",
+    "server-example": "libs/server/example",
     "testing": "libs/testing",
     "types": "libs/types"
   }
