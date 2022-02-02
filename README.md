@@ -2,6 +2,29 @@
 
 Hackathon project to demonstrate an Apigee developer portal created in React using API first approaches.
 
+## Getting Started
+
+Install node packages
+
+```
+npm i
+```
+
+## Load environment variables
+
+Login to Azure with az if you haven't already. Use the email address listed on [our roles and interests confluence page](https://ignwsolutions.atlassian.net/wiki/spaces/ADPH/pages/1890123786/Roles+Interests) for you.
+
+```
+az login
+az account set -s IGNW-Customer-POC
+```
+
+Run local.sh to load environment variables from Azure App Config into your local shell
+
+```
+source local.sh
+```
+
 ## Monorepo Boostrap Information
 
 This project was generated using [Nx](https://nx.dev).
@@ -80,8 +103,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
 
 ## ☁ Nx Cloud
 
