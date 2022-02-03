@@ -1,17 +1,10 @@
+import {
+  ApigeeApiProxy,
+  ApigeeDeveloper,
+  ApigeeDeveloperList,
+} from '@cdw/types';
 import { GoogleAuth } from 'google-auth-library';
-
-export interface ApigeeApiProxy {
-  name: string;
-  revision?: string[];
-  latestRevisionId?: string;
-  labels?: Record<string, string>;
-  metaData?: {
-    createdAt?: string;
-    lastModifiedAt?: string;
-    subType?: string;
-    [key: string]: string | undefined;
-  };
-}
+import { z } from 'zod';
 
 export async function getGoogleApiClient() {
   const auth = new GoogleAuth({
@@ -36,40 +29,29 @@ export async function getApi(apiName: string) {
   return res?.data as ApigeeApiProxy;
 }
 
-export interface ApigeeDeveloper {
-  email: string;
-  firstName?: string;
-  lastName?: string;
-  attributes?: Record<string, string>[];
-  apps?: string[];
-  companies?: string[];
-  developerId?: string;
-  organizationName?: string;
-  status?: string;
-  createdAt?: string;
-  lastModifiedAt?: string;
-  accessType?: string;
-  appFamily?: string;
-  userName?: string; // Added for create
-}
-
 export async function listDevelopers() {
   const { client, projectId } = await getGoogleApiClient();
   const url = `https://apigee.googleapis.com/v1/organizations/${projectId}/developers`;
   const res = await client.request({ url });
-  return res?.data as { developer: ApigeeDeveloper[] };
+  return res?.data as ApigeeDeveloperList;
 }
 
-export interface ApigeeCreateDeveloper
-  extends Omit<
-    ApigeeDeveloper,
-    'email' | 'firstName' | 'lastName' | 'userName'
-  > {
-  email: string;
-  firstName: string;
-  lastName: string;
-  userName: string;
+export async function getDeveloper(email: string) {
+  const { client, projectId } = await getGoogleApiClient();
+  const url = `https://apigee.googleapis.com/v1/organizations/${projectId}/developers/${email}`;
+  const res = await client.request({ url });
+  const result = await ApigeeDeveloper.parseAsync(res?.data);
+  console.log(result);
+  return result;
 }
+
+export const ApigeeCreateDeveloper = ApigeeDeveloper.extend({
+  email: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
+  userName: z.string(),
+});
+export type ApigeeCreateDeveloper = z.infer<typeof ApigeeCreateDeveloper>;
 
 export async function createDeveloper(developer: ApigeeCreateDeveloper) {
   const { client, projectId } = await getGoogleApiClient();

@@ -5,6 +5,7 @@ import {
   createDeveloper,
   deleteDeveloper,
   getApi,
+  getDeveloper,
   getGoogleApiClient,
   listApis,
   listDevelopers,
@@ -31,7 +32,7 @@ describe('apigeeSdk', () => {
     console.log(inspect(result, false, 10, false));
   });
 
-  it('should create then delete a developer', async () => {
+  it('should create, get then delete a developer', async () => {
     const developer = {
       email: 'someone@example.com',
       firstName: 'John',
@@ -41,6 +42,11 @@ describe('apigeeSdk', () => {
     const createResult = await createDeveloper(developer);
     expect(createResult).toBeTruthy();
     console.log(inspect(createResult, false, 10, false));
+
+    const getResult = await getDeveloper(developer.email);
+    expect(getResult).toBeTruthy();
+    expect(getResult).toEqual(expect.objectContaining(developer));
+    console.log(inspect(getResult, false, 10, false));
 
     const email = 'someone@example.com';
     const deleteResult = await deleteDeveloper(email);
@@ -60,22 +66,17 @@ describe('apigeeSdk', () => {
       .request({ url })
       .catch((err) => console.error(err));
     console.log(inspect(result?.data, false, 10, false));
-
-    // const arrayBuffer = await (result?.data as Blob).arrayBuffer();
-    // const buffer = Buffer.from(arrayBuffer);
-    // const data = Buffer.from(buffer);
-    // writeFileSync('./apigee-sdk.spec.zip', data);
   });
 
-  it('download zip blob', async () => {
-    const { client, projectId } = await getGoogleApiClient();
-    const url = `https://apigee.googleapis.com/v1/organizations/${projectId}/apis/One-API-to-Rule-Them-All/revisions/10?format=bundle`;
-    const result = await client
-      .request({ url, responseType: 'blob' })
-      .catch((err) => console.error(err));
-    const arrayBuffer = await (result?.data as Blob).arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    const data = Buffer.from(buffer);
-    writeFileSync('./apigee-sdk.spec.zip', data);
-  });
+  // it('download zip blob', async () => {
+  //   const { client, projectId } = await getGoogleApiClient();
+  //   const url = `https://apigee.googleapis.com/v1/organizations/${projectId}/apis/One-API-to-Rule-Them-All/revisions/10?format=bundle`;
+  //   const result = await client
+  //     .request({ url, responseType: 'blob' })
+  //     .catch((err) => console.error(err));
+  //   const arrayBuffer = await (result?.data as Blob).arrayBuffer();
+  //   const buffer = Buffer.from(arrayBuffer);
+  //   const data = Buffer.from(buffer);
+  //   writeFileSync('./apigee-sdk.spec.zip', data);
+  // });
 });
