@@ -4,13 +4,15 @@ import { ApiCard } from '@cdw/components';
 import { CircularProgress, Grid, Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { collection } from 'firebase/firestore';
-import { navigate } from 'gatsby';
+// import { navigate } from 'gatsby';
 import { useCollectionDataOnce } from 'react-firebase-hooks/firestore';
 import { Api } from '@cdw/types';
+import { useNavigate } from 'react-router-dom';
 /* eslint-disable-next-line */
 export interface DashboardProps {}
 
 export function Dashboard(props: DashboardProps) {
+  const navigate = useNavigate();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [values, loading, error, snapshot] = useCollectionDataOnce(
     collection(firestore, 'apis')

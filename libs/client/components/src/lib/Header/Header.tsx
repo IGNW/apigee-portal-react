@@ -1,10 +1,11 @@
-import { signOut } from '@cdw/client/database';
 import { Box, Button } from '@mui/material';
 
 /* eslint-disable-next-line */
-export interface HeaderProps {}
+export interface HeaderProps {
+  onSignOut?: () => void;
+}
 
-export function Header(props: HeaderProps) {
+export function Header({ onSignOut }: HeaderProps) {
   return (
     <Box
       sx={{
@@ -14,7 +15,7 @@ export function Header(props: HeaderProps) {
         justifyContent: 'flex-end',
       }}
     >
-      <Button onClick={() => signOut()}>Sign Out</Button>
+      <Button onClick={() => onSignOut && onSignOut()}>Sign Out</Button>
     </Box>
   );
 }
