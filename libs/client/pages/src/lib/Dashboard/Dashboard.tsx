@@ -19,13 +19,7 @@ export function Dashboard(props: DashboardProps) {
   );
 
   return (
-    <Stack
-      justifyContent="center"
-      alignItems="space-between"
-      spacing={2}
-      flexGrow={1}
-      style={{ minHeight: '100vh' }}
-    >
+    <Stack alignItems="space-between" spacing={2} flexGrow={1}>
       <div style={{ display: 'flex', flexGrow: 1, maxHeight: 415 }}>
         <Stack p={5}>
           <Grid container spacing={2}></Grid>

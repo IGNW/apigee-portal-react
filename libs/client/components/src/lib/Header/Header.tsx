@@ -11,11 +11,12 @@ export function Header({ onSignOut }: HeaderProps) {
       sx={{
         display: 'flex',
         p: 1,
-        m: 1,
         justifyContent: 'flex-end',
       }}
     >
-      <Button onClick={() => onSignOut && onSignOut()}>Sign Out</Button>
+      <Button variant="outlined" onClick={() => onSignOut && onSignOut()}>
+        Sign Out
+      </Button>
     </Box>
   );
 }
