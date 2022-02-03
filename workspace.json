@@ -7,10 +7,14 @@
     "client-pages": "libs/client/pages",
     "client-state": "libs/client/state",
     "client-theme": "libs/client/theme",
+    "core-service": "apps/core-service",
     "fire-cms": "apps/fire-cms",
     "rapi-doc-react": "libs/rapi-doc-react",
+    "server-apigee-sdk": "libs/server/apigee-sdk",
     "server-database": "libs/server/database",
     "server-example": "libs/server/example",
+    "server-modules-apigee": "libs/server/modules/apigee",
+    "server-modules-users": "libs/server/modules/users",
     "testing": "libs/testing",
     "types": "libs/types"
   }

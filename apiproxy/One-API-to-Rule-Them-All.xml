@@ -1,0 +1,18 @@
+<APIProxy revision="10" name="One-API-to-Rule-Them-All">
+    <DisplayName></DisplayName>
+    <Description>Lord of the Rings api</Description>
+    <CreatedAt>1643842482651</CreatedAt>
+    <LastModifiedAt>1643842482651</LastModifiedAt>
+    <BasePaths>/one-api-to-rule-them-all</BasePaths>
+    <Policies>
+        <Policy>AuthKVM</Policy>
+        <Policy>AddAuthKVMToHeader</Policy>
+        <Policy>AssignAuthKVM</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

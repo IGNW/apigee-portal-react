@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/apigee-sdk",
+  "sourceRoot": "libs/server/apigee-sdk/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/apigee-sdk/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/apigee-sdk"],
+      "options": {
+        "jestConfig": "libs/server/apigee-sdk/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["server", "apigee"]
+}
