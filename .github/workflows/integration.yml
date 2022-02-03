@@ -47,6 +47,14 @@ jobs:
   unit-tests:
     runs-on: ubuntu-latest
     steps:
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
       - name: Git checkout
         uses: actions/checkout@v2
         with:
@@ -66,6 +74,14 @@ jobs:
   integration-tests:
     runs-on: ubuntu-latest
     steps:
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
       - name: Git checkout
         uses: actions/checkout@v2
         with:
@@ -85,6 +101,14 @@ jobs:
   end-to-end-tests:
     runs-on: ubuntu-latest
     steps:
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
       - name: Git checkout
         uses: actions/checkout@v2
         with:

@@ -10,6 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
       - name: Git checkout
         uses: actions/checkout@v2
         with:
@@ -20,12 +28,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache: "npm"
+          cache: 'npm'
       - run: npm ci
+      - run: npm i -D @swc/core-linux-x64-gnu
       - name: Log in with Azure
         uses: azure/login@v1
         with:
-          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
       - name: Populate Dev Environment Variables
         run: source env/load-app-config.sh --name apigee-hackathon-ac --export-type github
       - name: Build
