@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { firestore } from '@cdw/client/database';
-import { Header } from '@cdw/components';
+import { Header, SidebarNav } from '@cdw/components';
 import { RapiDocReact } from '@cdw/rapi-doc-react';
 import { Api } from '@cdw/types';
+import { Box } from '@mui/material';
 import { doc, getDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 
@@ -50,17 +51,20 @@ export function Explorer(props: ExplorerProps) {
       {error && <div>{error}</div>}
       {!loading && !value && <div>API not found</div>}
       {typeof window !== 'undefined' && (
-        <RapiDocReact
-          ref={ref}
-          specLoaded={(spec) => {
-            console.log(spec);
-          }}
-          show-header={false}
-          allow-server-selection={false}
-          render-style="read"
-          theme="dark"
-          style={{ height: '100vh', width: '100%' }}
-        />
+        <Box display="flex">
+          <SidebarNav open={true} />
+          <RapiDocReact
+            ref={ref}
+            specLoaded={(spec) => {
+              console.log(spec);
+            }}
+            show-header={false}
+            allow-server-selection={false}
+            render-style="read"
+            theme="dark"
+            style={{ height: '100vh', width: '100%' }}
+          />
+        </Box>
       )}
     </>
   );

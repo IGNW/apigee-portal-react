@@ -26,6 +26,7 @@ export function Dashboard(props: DashboardProps) {
     >
       <div style={{ display: 'flex', flexGrow: 1, maxHeight: 415 }}>
         <Stack p={5}>
+          <Grid container spacing={2}></Grid>
           <h1 style={{ fontSize: '2.6rem', color: '#4e4e4e' }}>
             Welcome To API Awesome
           </h1>
