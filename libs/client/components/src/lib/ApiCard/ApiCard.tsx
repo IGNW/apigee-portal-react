@@ -23,8 +23,13 @@ export function ApiCard({
   };
 
   return (
-    <Paper {...props}>
-      <Stack spacing={{ xs: 1, sm: 2 }} sx={{ p: 1 }}>
+    <Paper sx={{ height: '100%', display: 'inline-flex' }} {...props}>
+      <Stack
+        direction="column"
+        justifyContent="space-between"
+        spacing={{ xs: 1, sm: 2 }}
+        sx={{ height: '100%', p: 2 }}
+      >
         <Stack
           direction="row"
           justifyContent="space-between"
