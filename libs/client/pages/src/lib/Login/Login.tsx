@@ -1,6 +1,16 @@
 import styled from '@emotion/styled';
-import { Box, Button, Paper, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { ReactComponent as Glass } from './glass.svg';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { firebaseAuth, signInWithGoogle } from '@cdw/client/database';
+import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
 /* eslint-disable-next-line */
 export interface LoginProps {}
@@ -22,6 +32,24 @@ const StyledLogin = styled.div`
 `;
 
 export function Login(props: LoginProps) {
+  const navigate = useNavigate();
+  const [user, loading, error] = useAuthState(firebaseAuth);
+
+  React.useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
+
+  const handleLogin = () => {
+    signInWithGoogle().then((user) => {
+      if (user) {
+        console.log('Signed in', user);
+        navigate('/');
+      }
+    });
+  };
+
   return (
     <Box
       sx={{
@@ -44,12 +72,20 @@ export function Login(props: LoginProps) {
         <Box>
           <Glass />
           <StyledLogin>
-            <Stack spacing={1} sx={{ p: 1 }}>
-              <Typography variant="h2" component="h1">
-                Login
-              </Typography>
-              <Button variant="contained">Google</Button>
-            </Stack>
+            {loading ? (
+              <Box>
+                <CircularProgress />
+              </Box>
+            ) : (
+              <Stack spacing={1} sx={{ p: 1 }}>
+                <Typography variant="h2" component="h1">
+                  Login
+                </Typography>
+                <Button variant="contained" onClick={() => handleLogin()}>
+                  Google
+                </Button>
+              </Stack>
+            )}
           </StyledLogin>
         </Box>
       </Stack>
