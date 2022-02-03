@@ -3,16 +3,66 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "hosting": {
-    "public": "./dist/fire-cms/",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
+  "hosting": [
+    {
+      "site": "hackathon-apigee-portal",
+      "firestore": {
+        "rules": ".firebase/firestore.rules",
+        "indexes": ".firebase/firestore.indexes.json"
+      },
+      "public": "apps/api-portal/public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=3600"
+            }
+          ]
+        }
+      ],
+      "storage": {
+        "rules": ".firebase/storage.rules"
       }
-    ]
-  },
+    },
+    {
+      "site": "hackathon-cms",
+      "firestore": {
+        "rules": ".firebase/firestore.rules",
+        "indexes": ".firebase/firestore.indexes.json"
+      },
+      "public": "./dist/fire-cms/",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=3600"
+            }
+          ]
+        }
+      ],
+      "storage": {
+        "rules": ".firebase/storage.rules"
+      }
+    }
+  ],
   "storage": {
     "rules": "storage.rules"
   },

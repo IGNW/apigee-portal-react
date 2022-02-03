@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "hackathon-apigee-portal"
+    "default": "hackathon-apigee-portal",
+    "hackathon-apigee-portal": "hackathon-apigee-portal",
+    "hackathon-cms": "hackathon-cms"
   }
 }

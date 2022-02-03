@@ -8,7 +8,7 @@ export interface RapiDocProps
     HTMLDivElement
   > {
   // General
-  'spec-url': string;
+  'spec-url'?: string;
   'update-route'?: boolean;
   'route-prefix'?: string;
   'sort-tags'?: boolean;

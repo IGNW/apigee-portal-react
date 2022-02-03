@@ -16,7 +16,8 @@
     "build:portal": "nx run api-portal:build",
     "storybook:components": "nx run client-components:storybook",
     "storybook:pages": "nx run client-pages:storybook",
-    "test": "nx test"
+    "test": "nx test",
+    "deploy:portal": "firebase deploy -P hackathon-apigee-portal  --only hosting:hackathon-apigee-portal"
   },
   "private": true,
   "devDependencies": {
@@ -96,6 +97,7 @@
     "gatsby-plugin-sharp": "4.6.0",
     "gatsby-plugin-svgr": "3.0.0-beta.0",
     "gatsby-plugin-typescript": "4.6.0",
+    "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-source-filesystem": "4.6.0",
     "gatsby-transformer-sharp": "4.6.0",
     "google-auth-library": "^7.11.0",
@@ -109,7 +111,9 @@
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "regenerator-runtime": "0.13.9",
+    "swagger-ui-react": "^4.4.1",
     "ts-deepmerge": "^2.0.1",
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "use-query-params": "^1.2.3"
   }
 }
