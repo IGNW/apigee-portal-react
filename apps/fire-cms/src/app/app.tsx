@@ -239,24 +239,6 @@ export default function App() {
     return {
       collections: [
         buildCollection({
-          path: 'products',
-          schema: productSchema,
-          name: 'Products',
-          permissions: ({ authController }) => ({
-            edit: true,
-            create: true,
-            // we have created the roles object in the navigation builder
-            delete: authController.extra.roles.includes('admin'),
-          }),
-          subcollections: [
-            buildCollection({
-              name: 'Locales',
-              path: 'locales',
-              schema: localeSchema,
-            }),
-          ],
-        }),
-        buildCollection({
           path: 'apis',
           schema: apiSchema,
           name: 'APIs',
@@ -292,7 +274,7 @@ export default function App() {
 
   return (
     <FirebaseCMSApp
-      name={'My Online Shop'}
+      name={'API Awesome'}
       authentication={myAuthenticator}
       navigation={navigation}
       firebaseConfig={firebaseConfig}

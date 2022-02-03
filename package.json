@@ -19,7 +19,8 @@
     "storybook:components": "nx run client-components:storybook",
     "storybook:pages": "nx run client-pages:storybook",
     "test": "nx test",
-    "deploy:portal": "firebase deploy -P hackathon-apigee-portal  --only hosting:hackathon-apigee-portal"
+    "deploy:portal": "firebase deploy -P hackathon-apigee-portal  --only hosting:hackathon-apigee-portal",
+    "deploy:cms": "firebase deploy -P hackathon-apigee-portal  --only hosting:hackathon-cms"
   },
   "private": true,
   "devDependencies": {

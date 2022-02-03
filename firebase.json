@@ -39,7 +39,7 @@
         "rules": ".firebase/firestore.rules",
         "indexes": ".firebase/firestore.indexes.json"
       },
-      "public": "./dist/fire-cms/",
+      "public": "./dist/apps/fire-cms/",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {

@@ -16,7 +16,10 @@ export function Index() {
     <Stack
       alignItems="center"
       justifyContent="center"
-      style={{ minHeight: '100vh', backgroundColor: '#96CECE' }}
+      style={{
+        minHeight: '100vh',
+        backgroundColor: '#96CECE',
+      }}
     >
       {!user && !loading && (
         <Button

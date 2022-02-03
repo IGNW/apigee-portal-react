@@ -25,12 +25,29 @@ export function Dashboard(props: DashboardProps) {
       style={{ minHeight: '100vh' }}
     >
       <div style={{ display: 'flex', flexGrow: 1, maxHeight: 415 }}>
-        <Stack p={5}>
-          <Grid container spacing={2}></Grid>
-          <h1 style={{ fontSize: '2.6rem', color: '#4e4e4e' }}>
-            Welcome To API Awesome
-          </h1>
-          <p>Lorem Ipsum dolar sit amet</p>
+        <Stack direction="row" pl={5}>
+          <div
+            style={{
+              backgroundColor: '#1D5AA2',
+              height: '8rem',
+              marginRight: '2rem',
+              marginLeft: '1rem',
+              width: '1.5rem',
+            }}
+          ></div>
+          <Stack>
+            <h1 style={{ fontSize: '2.6rem', color: '#4e4e4e', marginTop: 0 }}>
+              Welcome To API Awesome
+            </h1>
+            <p style={{ maxWidth: '80%' }}>
+              Our Knowledge Transfer Ballpark Figure solution offers standpoints
+              a suite of innovative offerings. You need to reliably reuse your
+              step-changes to increase your diversity velocity. Our business
+              transforms market foci to globally and iteratively connect our
+              competitive stack. Efficiencies will come from conservatively
+              virtualising our enterprises.
+            </p>
+          </Stack>
         </Stack>
       </div>
       <div style={{ display: 'flex', flexGrow: 1, backgroundColor: '#EBF4FF' }}>

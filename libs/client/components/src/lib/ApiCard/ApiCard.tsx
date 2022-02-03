@@ -23,18 +23,19 @@ export function ApiCard({
   };
 
   return (
-    <Paper {...props}>
-      <Stack spacing={{ xs: 1, sm: 2 }} sx={{ p: 1 }}>
+    <Paper {...props} sx={{ p: 2 }}>
+      <Stack spacing={{ xs: 1, sm: 2 }} sx={{ p: 1, height: '24rem' }}>
         <Stack
           direction="row"
           justifyContent="space-between"
           alignItems="center"
           spacing={2}
         >
-          <Typography variant="h3">{name}</Typography>
+          <Typography variant="h4">{name}</Typography>
           {isPublic && <LockOpenIcon />}
         </Stack>
         <Typography variant="body1">{description}</Typography>
+        <div style={{ flex: 1 }} />
         <Stack direction="row" justifyContent="space-between">
           <Button variant="contained" onClick={() => handleClick()}>
             Explore API
