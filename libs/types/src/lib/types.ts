@@ -3,7 +3,6 @@ export function types(): string {
 }
 
 export type Api = {
-  id: string;
   name: string;
   description: string;
   oas: string;
