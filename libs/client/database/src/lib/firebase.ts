@@ -87,6 +87,7 @@ if (process.env.NX_USE_EMULATORS || process.env.GATSBY_USE_EMULATORS) {
     parseInt(databasePort, 10)
   );
 }
+
 export const providerGoogle = new GoogleAuthProvider();
 
 export const signInWithGoogle = () =>

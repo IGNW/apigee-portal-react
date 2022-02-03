@@ -16,7 +16,8 @@
     "build:portal": "nx run api-portal:build",
     "storybook:components": "nx run client-components:storybook",
     "storybook:pages": "nx run client-pages:storybook",
-    "test": "nx test"
+    "test": "nx test",
+    "deploy:portal": "firebase deploy -P hackathon-apigee-portal  --only hosting:hackathon-apigee-portal"
   },
   "private": true,
   "devDependencies": {
