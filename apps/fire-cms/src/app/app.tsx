@@ -48,6 +48,36 @@ type Product = {
   expires_on: Date;
 };
 
+type Api = {
+  name: string;
+  description: string;
+  oas: string;
+};
+
+const apiSchema = buildSchema<Api>({
+  name: 'Api',
+  properties: {
+    name: {
+      title: 'Name',
+      validation: { required: true },
+      dataType: 'string',
+    },
+    description: {
+      title: 'Description',
+      validation: { required: true },
+      dataType: 'string',
+    },
+    oas: {
+      title: 'OAS',
+      validation: { required: false },
+      dataType: 'string',
+      config: {
+        multiline: true,
+      },
+    },
+  },
+});
+
 const productSchema = buildSchema<Product>({
   name: 'Product',
   properties: {
@@ -225,6 +255,17 @@ export default function App() {
               schema: localeSchema,
             }),
           ],
+        }),
+        buildCollection({
+          path: 'apis',
+          schema: apiSchema,
+          name: 'APIs',
+          permissions: ({ authController }) => ({
+            edit: true,
+            create: true,
+            // we have created the roles object in the navigation builder
+            delete: authController.extra.roles.includes('admin'),
+          }),
         }),
       ],
     };
