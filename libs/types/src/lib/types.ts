@@ -1,5 +1,12 @@
 import { z } from 'zod';
 
+export const Api = z.object({
+  name: z.string(),
+  description: z.string(),
+  oas: z.string(),
+})
+export type Api = z.infer<typeof Api>;
+
 // Apigee API Types
 export const ApigeeMetadata = z
   .object({

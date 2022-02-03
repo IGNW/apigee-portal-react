@@ -33,6 +33,9 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+firestore-debug.log
+pubsub-debug.log
+ui-debug.log
 
 # System Files
 .DS_Store
@@ -41,3 +44,5 @@ Thumbs.db
 /apps/api-portal/node_modules
 /apps/api-portal/public
 /apps/api-portal/.cache
+
+save-data.js
