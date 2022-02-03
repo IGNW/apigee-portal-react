@@ -19,8 +19,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache: "npm"
+          cache: 'npm'
       - run: npm ci
+      - run: npm i -D @swc/core-linux-x64-gnu
       - name: Build
         run: ./node_modules/.bin/nx affected --target=build --configuration production --base=$NX_BASE
 
@@ -37,8 +38,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache: "npm"
+          cache: 'npm'
       - run: npm ci
+      - run: npm i -D @swc/core-linux-x64-gnu
       - name: Lint
         run: ./node_modules/.bin/nx affected --target=lint --base=$NX_BASE
 
@@ -55,8 +57,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache: "npm"
+          cache: 'npm'
       - run: npm ci
+      - run: npm i -D @swc/core-linux-x64-gnu
       - name: Unit Tests
         run: ./node_modules/.bin/nx affected --target=test --base=$NX_BASE
 
@@ -73,8 +76,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache: "npm"
+          cache: 'npm'
       - run: npm ci
+      - run: npm i -D @swc/core-linux-x64-gnu
       - name: Integration Tests
         run: ./node_modules/.bin/nx affected --target=integration-test --base=$NX_BASE
 
@@ -91,12 +95,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache: "npm"
+          cache: 'npm'
       - run: npm ci
+      - run: npm i -D @swc/core-linux-x64-gnu
       - name: Log in with Azure
         uses: azure/login@v1
         with:
-          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
       - name: Populate Dev Environment Variables
         run: source env/load-app-config.sh --name apigee-hackathon-ac --export-type github
       - name: End To End Tests
