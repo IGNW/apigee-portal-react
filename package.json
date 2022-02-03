@@ -10,6 +10,8 @@
   },
   "scripts": {
     "emulators": "firebase emulators:start",
+    "start:core": "nx run core-service:serve --watch",
+    "build:core": "nx run core-service:build --packageJson",
     "start:cms": "nx run fire-cms:serve",
     "build:cms": "nx run fire-cms:build",
     "start:portal": "nx run api-portal:serve",
