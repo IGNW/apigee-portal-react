@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "One API to Rule Them All",
+        "description": "Lord of the Rings api",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://the-one-api.dev/v2"
+        }
+    ],
+    "paths": {
+        "/book": {
+            "get": {
+                "tags": [
+                    "books"
+                ],
+                "summary": "Get Books",
+                "description": "Get Books",
+                "operationId": "listBooks",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/movie": {
+            "get": {
+                "tags": [
+                    "movies"
+                ],
+                "summary": "Get Movies",
+                "operationId": "listMovies",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/character": {
+            "get": {
+                "tags": [
+                    "characters"
+                ],
+                "summary": "Get Characters",
+                "operationId": "listCharacters",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "One Api to Rule Them All",
+            "description": "Lord of the Rings ApI"
+        }
+    ]
+}
