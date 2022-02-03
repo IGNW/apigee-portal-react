@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AssignAuthKVM">
+    <Add>
+        <Headers>
+            <Header name="Authorization">{private.authKVM}</Header>
+        </Headers>
+    </Add>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

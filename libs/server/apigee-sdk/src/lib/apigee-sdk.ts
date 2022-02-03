@@ -1,21 +1,16 @@
-import {
-  auth,
-  GoogleAuth,
-  LoginTicket,
-  OAuth2Client,
-  Compute,
-} from 'google-auth-library';
-
-export function apigeeSdk(): string {
-  return 'apigee-sdk';
-}
+import { GoogleAuth } from 'google-auth-library';
 
 export interface ApigeeApiProxy {
   name: string;
   revision?: string[];
   latestRevisionId?: string;
   labels?: Record<string, string>;
-  metaData?: Record<string, unknown>;
+  metaData?: {
+    createdAt?: string;
+    lastModifiedAt?: string;
+    subType?: string;
+    [key: string]: string | undefined;
+  };
 }
 
 export async function getGoogleApiClient() {
@@ -32,6 +27,13 @@ export async function listApis(): Promise<{ proxies: ApigeeApiProxy[] }> {
   const url = `https://apigee.googleapis.com/v1/organizations/${projectId}/apis`;
   const res = await client.request({ url });
   return res?.data as { proxies: ApigeeApiProxy[] };
+}
+
+export async function getApi(apiName: string) {
+  const { client, projectId } = await getGoogleApiClient();
+  const url = `https://apigee.googleapis.com/v1/organizations/${projectId}/apis/${apiName}`;
+  const res = await client.request({ url });
+  return res?.data as ApigeeApiProxy;
 }
 
 export interface ApigeeDeveloper {
