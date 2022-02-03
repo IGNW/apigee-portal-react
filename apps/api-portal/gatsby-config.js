@@ -5,7 +5,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-emotion',
-
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
@@ -29,18 +28,18 @@ module.exports = {
         path: __dirname,
       },
     },
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `api-portal`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/logo.svg`,
-      },
-    },
+    // `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `api-portal`,
+    //     short_name: `starter`,
+    //     start_url: `/`,
+    //     background_color: `#663399`,
+    //     theme_color: `#663399`,
+    //     display: `minimal-ui`,
+    //     icon: `src/images/logo.svg`,
+    //   },
+    // },
   ],
 };

@@ -31,7 +31,7 @@ export function ApiCard({
           alignItems="center"
           spacing={2}
         >
-          <Typography variant="h2">{name}</Typography>
+          <Typography variant="h3">{name}</Typography>
           {isPublic && <LockOpenIcon />}
         </Stack>
         <Typography variant="body1">{description}</Typography>

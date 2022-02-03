@@ -1,17 +1,21 @@
-import styled from '@emotion/styled';
+import { signOut } from '@cdw/client/database';
+import { Box, Button } from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
 
-const StyledHeader = styled.div`
-  color: pink;
-`;
-
 export function Header(props: HeaderProps) {
   return (
-    <StyledHeader>
-      <h1>Welcome to Header!</h1>
-    </StyledHeader>
+    <Box
+      sx={{
+        display: 'flex',
+        p: 1,
+        m: 1,
+        justifyContent: 'flex-end',
+      }}
+    >
+      <Button onClick={() => signOut()}>Sign Out</Button>
+    </Box>
   );
 }
 
