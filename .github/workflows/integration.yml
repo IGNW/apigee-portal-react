@@ -80,7 +80,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm i -D @swc/core-linux-x64-gnu
-      - name: Install Firebase Emulator Suite
         run: npm install -g firebase-tools@9.20.0
       - name: Unit Tests
         run: firebase emulators:exec --only firestore --project hackathon-apigee-portal './node_modules/.bin/nx affected --target=test --base=$NX_BASE'
