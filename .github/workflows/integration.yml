@@ -80,8 +80,28 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm i -D @swc/core-linux-x64-gnu
+      - name: Install Firebase Emulator Suite
+        run: npm install -g firebase-tools@9.20.0
       - name: Unit Tests
-        run: ./node_modules/.bin/nx affected --target=test --base=$NX_BASE
+        run: firebase emulators:exec --only firestore --project hackathon-apigee-portal './node_modules/.bin/nx affected --target=test --base=$NX_BASE'
+        env:
+          PROJECT_ID: 'hackathon-apigee-portal'
+          GCLOUD_PROJECT: 'hackathon-apigee-portal'
+          GOOGLE_CLOUD_PROJECT: 'hackathon-apigee-portal'
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+          FIREBASE_TOKEN: ${{ secrets.GCP_CREDENTIALS }}
+          FIREBASE_USE_EMULATOR: true
+          FIREBASE_AUTH_EMULATOR_HOST: 'localhost:9021'
+          FIRESTORE_EMULATOR_HOST: 'localhost:9022'
+          FIREBASE_DATABASE_EMULATOR_HOST: 'localhost:9023'
+          PUBSUB_EMULATOR_HOST: 'localhost:9024'
+          FIREBASE_STORAGE_EMULATOR_HOST: 'localhost:9025'
+          FIREBASE_FUNCTIONS_EMULATOR_HOST: 'localhost:5001'
+          DISABLE_PUBSUB_AUTH: true
+          NX_USE_EMULATORS: true
+          NX_AUTH_EMULATOR_HOST: 'localhost:9021'
+          GATSBY_USE_EMULATORS: true
+          GATSBY_FIREBASE_AUTH_EMULATOR_HOST: 'localhost:9021'
 
   integration-tests:
     runs-on: ubuntu-latest
