@@ -14,16 +14,42 @@ module.exports = (webpackConfig, nxConfig) => {
 
   mergeWebpackConfigs.push({
     plugins: [
-      // FIX for HookState.js until next version (4?)
-      new webpack.DefinePlugin({
-        process: {},
+      // Work around for Buffer is undefined:
+      // https://github.com/webpack/changelog-v5/issues/10
+      new webpack.ProvidePlugin({
+        Buffer: ['buffer', 'Buffer'],
       }),
-      // Expanding NRWL passed variables
-      new webpack.DefinePlugin({
-        'process.env': getClientEnvironment().stringified, // it will automatically pick up key values from .env file
+      new webpack.ProvidePlugin({
+        process: 'process/browser',
       }),
     ],
-  });
+    resolve: {
+      fallback: {
+        "stream": require.resolve("stream-browserify"),
+        "buffer": require.resolve('buffer')
+      },
+      alias: {
+        "buffer": "buffer",
+        "stream": "stream-browserify"
+      }
+    },
+    node: {
+      global: true
+    },
+  })
+
+  // mergeWebpackConfigs.push({
+  //   plugins: [
+  //     // FIX for HookState.js until next version (4?)
+  //     new webpack.DefinePlugin({
+  //       process: {},
+  //     }),
+  //     // Expanding NRWL passed variables
+  //     new webpack.DefinePlugin({
+  //       'process.env': getClientEnvironment().stringified, // it will automatically pick up key values from .env file
+  //     }),
+  //   ],
+  // });
 
   // For production we add the service worker
   // if (config.mode === 'production' || process.env.FIREBASE_FCM_DEV) {

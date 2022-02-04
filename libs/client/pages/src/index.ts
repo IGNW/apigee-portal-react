@@ -5,3 +5,4 @@ export * from './lib/Catalog/Catalog';
 export * from './lib/Dashboard/Dashboard';
 export * from './lib/Login/Login';
 export * from './lib/client-pages';
+export * from './lib/state-header';
