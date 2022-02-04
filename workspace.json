@@ -15,6 +15,7 @@
     "server-example": "libs/server/example",
     "server-modules-apigee": "libs/server/modules/apigee",
     "server-modules-users": "libs/server/modules/users",
+    "spa-portal": "apps/spa-portal",
     "testing": "libs/testing",
     "types": "libs/types"
   }

@@ -1,20 +1,39 @@
-import { signOut } from '@cdw/client/database';
-import { Box, Button } from '@mui/material';
+import { Box, Button, useTheme, Stack } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
+import CdwLogo from '../Logos/CDWlogo';
 
 /* eslint-disable-next-line */
-export interface HeaderProps {}
+export interface HeaderProps {
+  onSignOut?: () => void;
+}
 
-export function Header(props: HeaderProps) {
+export function Header({ onSignOut }: HeaderProps) {
+  const theme = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
         display: 'flex',
-        p: 1,
-        m: 1,
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
+        backgroundColor: theme.palette.secondary.main,
       }}
     >
-      <Button onClick={() => signOut()}>Sign Out</Button>
+      <Stack
+        sx={{ paddingLeft: 1, cursor: 'pointer' }}
+        onClick={() => navigate('/')}
+      >
+        <CdwLogo sx={{ color: 'black', width: '50px', height: '50px' }} />
+      </Stack>
+      <Button
+        sx={{ m: 1 }}
+        variant="outlined"
+        color="inherit"
+        onClick={() => onSignOut && onSignOut()}
+      >
+        Sign Out
+      </Button>
     </Box>
   );
 }

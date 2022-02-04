@@ -1,0 +1,15 @@
+<svg width=0 height=0>
+  <defs>
+    <filter id="glass">
+      <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" />
+      <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="6"/>
+      <feColorMatrix type="saturate" values="0.8" />
+      <feColorMatrix type="matrix" values=" 
+       .96  0  0  0  0
+       .04  1  0  0  0
+       .04 .06 1  0  0
+        0   0  0  1  0" />
+    </filter>
+  </defs>
+</svg>
